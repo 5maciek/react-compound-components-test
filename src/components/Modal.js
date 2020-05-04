@@ -11,12 +11,10 @@ class Modal extends React.Component {
         isOpen: false,
     }
 
-    handleClickOutside = (event) => {
-        if (event.target.classList.value === "modal") {
-            this.setState({
-                isOpen: false
-            })
-        }
+    handleClickOutside = () => {
+        this.setState({
+            isOpen: false
+        })
     }
 
     handleToggle = (isOpen) => {
@@ -34,7 +32,7 @@ class Modal extends React.Component {
             <button onClick={() => this.handleToggle(true)}>Open modal</button>
             {openModal && (
                 <div className="modal" onClick={this.handleClickOutside}>
-                    <div className="modalContent">
+                    <div className="modalContent" onClick={e => e.stopPropagation()}>
                         <Provider value={{ isOpen, handleToggle }}>{this.props.children}</Provider>
                     </div>
                 </div>
