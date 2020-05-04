@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { modalContext } from "./ModalContext";
 
-function ModalFooter({callToActionLabel}) {
+function ModalFooter({callToActionLabel = "OK"}) {
     const { handleToggle } = useContext(modalContext);
 
     function closeModal() {               

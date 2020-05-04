@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { modalContext } from "./ModalContext";
 
-function ModalHeader({title}) {
+function ModalHeader({title = "title"}) {
     const { handleToggle } = useContext(modalContext);
 
     function closeModal() {
