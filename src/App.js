@@ -10,7 +10,9 @@ function App() {
   let [state, setState] = useSetState(initialState);
 
   const handleClick = () => {
-    setState({ counter: state.counter + 1 });
+    setState((prevState) => {
+      return { counter: prevState.counter + 1 };
+    });
   };
 
   const handleChange = (event) => {
