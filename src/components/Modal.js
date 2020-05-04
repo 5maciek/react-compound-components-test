@@ -7,6 +7,10 @@ import { modalContext } from "./ModalContext";
 const { Provider } = modalContext;
 
 class Modal extends React.Component {
+    static Header = ModalHeader;
+    static Content = ModalContent;
+    static Footer = ModaFooter;
+
     state = {
         isOpen: false,
     }
@@ -41,7 +45,6 @@ class Modal extends React.Component {
     }
 }
 
-Modal.Header = ModalHeader;
-Modal.Content = ModalContent;
-Modal.Footer = ModaFooter;
+
+
 export default Modal;
