@@ -1,10 +1,27 @@
 import React from 'react';
-//import './App.css';
+import useSetState from './components/hooks/useSetState'
 import Modal from './components/Modal'
 
 function App() {
+  const initialState = {
+    counter: 0,
+    text: ""
+  }
+  let [state, setState] = useSetState(initialState);
+
+  const handleClick = () => {
+    setState({ counter: state.counter + 1 });
+  };
+
+  const handleChange = (event) => {
+    setState({ text: event.target.value });
+  }
+
   return (
     <div className="App">
+      <p>Counter value: {state.counter}</p>
+      <input type="text" name="name" onChange={handleChange}/>
+      <button onClick={handleClick}>Add 1 to counter</button>
       <Modal>
         <Modal.Header title={'tytuł'} />
         <Modal.Content>
